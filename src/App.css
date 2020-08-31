@@ -1,38 +1,102 @@
-.App {
+/* HEADER */
+header {
+  background-color: var(--cl-pri-d);
+  color: var(--cl-text-icon);
+}
+header > h1 {
+  padding: var(--pd);
+}
+/* MENU */
+menu {
+  position: sticky;
+  top: 0;
+  background-color: var(--cl-pri);
+  z-index: 1;
+}
+menu > div {
+  padding: var(--pd) var(--pd-l);
+}
+menu * {
+  color: var(--cl-text-icon);
+}
+menu span {
+  flex-grow: 1;
+}
+menu select {
+  padding: 0.5rem 1rem;
+  background-color: var(--cl-pri);
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--cl-text-icon);
+}
+/* LOADING, ERROR, NO ITEMS */
+section > h2 {
+  font-weight: 500;
   text-align: center;
+  padding: 2rem 0;
+  color: var(--cl-text-sec);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* REPOSITORY LIST */
+.repo-list {
+  padding: 1rem;
+  --border-radius: 6px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.repo-list > * + * {
+  margin-top: 1rem;
+}
+.repo-list_item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    "name aside"
+    "description aside";
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--cl-divider);
+}
+.repo-list_item:before {
+  content: "";
+  position: absolute;
+  border-radius: var(--border-radius);
+  height: 100%;
+  width: 100%;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  z-index: -1;
+}
+.repo-list_item:hover:before {
+  opacity: 1;
+}
+.repo-list_item > h2 {
+  grid-area: name;
+}
+.repo-list_item > h2 > small {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.repo-list_item > p {
+  grid-area: description;
+}
+.repo-list_item > aside {
+  grid-area: aside;
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: var(--gap);
+}
+/* MOBILE */
+@media screen and (max-width: 576px) {
+  .repo-list_item {
+    grid-template-columns: 1fr;
+    grid-template-areas: "name" "description" "aside";
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .repo-list_item > aside {
+    grid-auto-flow: column;
+    justify-content: end;
   }
-  to {
-    transform: rotate(360deg);
+  menu > div > button > label {
+    display: none;
   }
 }

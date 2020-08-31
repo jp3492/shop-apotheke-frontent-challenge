@@ -1,3 +1,18 @@
+:root {
+  --cl-pri: #009688;
+  --cl-pri-d: #00796B;
+
+  --cl-text-pri: #585858;
+  --cl-text-icon: #FFFFFF;
+  --cl-divider: #BDBDBD;
+
+  --shadow: 0 3px 6px rgba(0,0,0,0.16), 0 0px 4px rgba(0,0,0,0.23);
+
+  --pd: 1rem;
+  --pd-l: 2rem;
+  --gap: 1rem;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +20,58 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--cl-text-pri);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, p, menu, button {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a * {
+  cursor: pointer;
+}
+
+i {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+.flex-aligned {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.justify-end {
+  justify-self: end;
+}
+
+.align-start {
+  align-self: start;
+}
+
+.content > * {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 992px;
 }
