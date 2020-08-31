@@ -1,2 +1,2 @@
-####Front-End Challenge Shop-Apotheke
-###Jan-Philipp Marks
+Front-End Challenge Shop-Apotheke
+Jan-Philipp Marks
